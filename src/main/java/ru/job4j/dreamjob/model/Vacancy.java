@@ -17,6 +17,9 @@ public class Vacancy {
         this.creationDate = creationDate;
     }
 
+    public Vacancy() {
+    }
+
     public int getId() {
         return id;
     }
