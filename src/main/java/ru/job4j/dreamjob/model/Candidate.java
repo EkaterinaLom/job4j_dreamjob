@@ -17,6 +17,9 @@ public class Candidate {
         this.creationDate = creationDate;
     }
 
+    public Candidate() {
+    }
+
     public int getId() {
         return id;
     }
