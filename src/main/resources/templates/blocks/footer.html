@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 
@@ -14,16 +14,16 @@
             integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
             crossorigin="anonymous"></script>
 
-    <title>Ошибка</title>
+    <title>Подвал</title>
 </head>
 <body>
-<div class="container-fluid p-0">
-    <header th:insert="blocks/header :: header"></header>
-    <div class="container">
-        <h3 class="mt-3">Произошла ошибка</h3>
-        <p class="text-danger" th:text="${message}"></p>
-    </div>
-    <footer th:insert="blocks/footer :: footer"></footer>
+<div th:fragment="footer">
+    <p class="pt-3 mt-4 text-muted border-top">
+        DreamJob
+        <br>
+        <a href="https://github.com/peterarsentev">Создал Пётр Арсентьев</a><br>
+        <a href="https://job4j.ru">Job4j</a>
+    </p>
 </div>
 </body>
 </html>
