@@ -1,5 +1,7 @@
 package ru.job4j.dreamjob.repository;
 
+import net.jcip.annotations.GuardedBy;
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.Candidate;
 import java.time.LocalDateTime;
@@ -8,9 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@ThreadSafe
 @Repository
 public class MemoryCandidateRepository implements CandidateRepository {
 
+    @GuardedBy("this")
     private int nextId = 1;
     private final Map<Integer, Candidate> candidates = new HashMap<>();
 
