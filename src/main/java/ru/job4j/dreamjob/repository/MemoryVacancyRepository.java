@@ -27,7 +27,7 @@ public class MemoryVacancyRepository implements VacancyRepository {
         save(new Vacancy(0, "Middle Java Developer", "Description Middle Java Developer",
                  LocalDateTime.now(), true));
         save(new Vacancy(0, "Middle+ Java Developer", "Description Middle+ Java Developer",
-                LocalDateTime.now(),false));
+                LocalDateTime.now(), false));
         save(new Vacancy(0, "Senior Java Developer", "Description Senior Java Developer",
                 LocalDateTime.now(), true));
     }
