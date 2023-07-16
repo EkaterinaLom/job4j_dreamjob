@@ -3,6 +3,7 @@ package ru.job4j.dreamjob.repository;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.Candidate;
+
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashMap;
@@ -19,11 +20,11 @@ public class MemoryCandidateRepository implements CandidateRepository {
 
     private MemoryCandidateRepository() {
         save(new Candidate(0, "Ivanov Ivan Jovanovich", "Description Ivanov Ivan Jovanovich",
-                LocalDateTime.now(), 2));
+                LocalDateTime.now(), 2, 0));
         save(new Candidate(0, "Petrov Petr Petrovich", "Description Petrov Petr Petrovich",
-                LocalDateTime.now(), 1));
+                LocalDateTime.now(), 1, 0));
         save(new Candidate(0, "Sidor Denis Abramovich", "Description Sidor Denis Abramovich",
-                LocalDateTime.now(), 3));
+                LocalDateTime.now(), 3, 0));
     }
 
     @Override
@@ -41,7 +42,8 @@ public class MemoryCandidateRepository implements CandidateRepository {
     @Override
     public boolean update(Candidate candidate) {
         return candidates.computeIfPresent(candidate.getId(), (id, oldCandidate) -> new Candidate(oldCandidate.getId(),
-                candidate.getName(), candidate.getDescription(), candidate.getCreationDate(), candidate.getCityId())) != null;
+                candidate.getName(), candidate.getDescription(), candidate.getCreationDate(), candidate.getCityId(),
+                candidate.getFileId())) != null;
     }
 
     @Override
