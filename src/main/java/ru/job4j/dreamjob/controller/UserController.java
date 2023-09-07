@@ -21,18 +21,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    public void getSessionUser(HttpSession session, Model model) {
-        var user = (User) session.getAttribute("user");
-        if (user == null) {
-            user = new User();
-            user.setName("Гость");
-        }
-        model.addAttribute("user", user);
-    }
-
     @GetMapping("/register")
-    public String getRegistrationPage(Model model, HttpSession session) {
-        getSessionUser(session, model);
+    public String getRegistrationPage() {
         return "user/register";
     }
 
@@ -46,9 +36,8 @@ public class UserController {
         return "redirect:/vacancies";
     }
 
-    @GetMapping("login")
-    public String getLoginPage(Model model, HttpSession session) {
-        getSessionUser(session, model);
+    @GetMapping("/login")
+    public String getLoginPage() {
         return "users/login";
     }
 
